@@ -40,7 +40,7 @@ export default function Form(){
                     onChange={handleChange}></input>
                {!isValid && isDirty && <p>Please enter the correct value!</p>}
 
-               <NavLink to={`/comment/${inputValue}`}>
+               <NavLink to={`/post/${inputValue}`}>
                     <button>Search</button>
                </NavLink>
           </form>
