@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect, FormEvent} from "react";
+import React, {useState, FormEvent} from "react";
 import "./styles.css"
 
 import useGetData from "./../../hooks/useGetData";
@@ -12,10 +12,6 @@ export default function Form(){
      const [isValid, setIsValid] = useState<boolean>(false)
      const {getPost} = useGetData();
 
-     useEffect(() => {
-          console.log(isValid)
-     }, [])
-
      function handleBlur(e: React.FocusEvent<HTMLInputElement>){
           setIsDirty(true)
           setIsValid(useValidation(inputValue));
@@ -26,8 +22,6 @@ export default function Form(){
 
      async function handleSubmit(event: FormEvent<HTMLFormElement>){
           event.preventDefault();
-          console.log('click')
-
 
           if(isValid){
                const post = await getPost(inputValue);
@@ -49,7 +43,7 @@ export default function Form(){
                     onChange={handleChange}></input>
                {!isValid && isDirty && <p>Please enter the correct value!</p>}
 
-               <button >Search</button>
+               <button>Search</button>
           </form>
      );
 }
