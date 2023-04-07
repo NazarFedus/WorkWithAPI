@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import {API} from './../constants/api'
 
-export function getData(){
+export default function useGetData(){
      const [data, setData] = useState<any>('');
 
      async function getPost(id: number) {
