@@ -1,8 +1,8 @@
 import React, {useState, FormEvent} from "react";
+import { NavLink } from "react-router-dom";
 import "./styles.css"
 
 import useGetData from "./../../hooks/useGetData";
-
 import useValidation from "../../hooks/useValidation";
 
 export default function Form(){
@@ -30,9 +30,6 @@ export default function Form(){
           }
      }
 
-
-
-
      return (
           <form onSubmit={handleSubmit}>
                <label>Input Id:</label>
@@ -43,7 +40,9 @@ export default function Form(){
                     onChange={handleChange}></input>
                {!isValid && isDirty && <p>Please enter the correct value!</p>}
 
-               <button>Search</button>
+               <NavLink to={`/comment/${inputValue}`}>
+                    <button>Search</button>
+               </NavLink>
           </form>
      );
 }
